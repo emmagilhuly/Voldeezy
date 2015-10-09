@@ -9,9 +9,9 @@
   <body>
     <h1>Donald Kanye Voldemort</h1>
     <div class = "questioncontainer">
-      <p> "I will be the leader of a company that ends up being worth billions of dollars because I got the answers."</p>
+      <p id="displayquote"> "I will be the leader of a company that ends up being worth billions of dollars because I got the answers."</p>
     </div>
-    <div class = "timer"></div>
+    <div class="timer"></div>
     <div class = "score">Score: </div>
     <div class = "picturecontainer">
       <img class = "picture" src = "images/donald.jpg">
@@ -23,13 +23,14 @@
     var game = {score: 0, ellapsedTime: 60};
     var timer = $('.timer');
     var picture = $(".picture")
+    var displayQuote = $("#displayquote")
 
-    setInterval(function(){
+    setInterval(function (){
       game.ellapsedTime = game.ellapsedTime - 1;
       timer.text("Time: " + game.ellapsedTime);
     }, 1000);
 
-    var array = [
+    var quotes = [
     "I hate politics. I’m not a politician at all.K",
     "I am so credible and so influential and so relevant that I will change things.K",
     "I will be the leader of a company that ends up being worth billions of dollars because I got the answers.K",
@@ -47,9 +48,21 @@
     "Anyone who thinks my story is anywhere near over is sadly mistaken.T",
     "I didn’t want to do this. I just see our country as going to hell. And I felt I had to do it.T",
   ];
+    //get the first quote
+    //quote[0]
+    //get the last quote
+    //quote[(quote.length-1)]
 
-    var rand = array[Math.floor(Math.random() * array.length)];
-    console.log(rand)
+    //get a random quote
+    //Math.floor(Math.random() * quotes.length)
+
+
+    function getRandomQuote() {
+      quoteIndex =  Math.floor(Math.random() * quotes.length)
+      return quotes[quoteIndex]
+    }
+
+    displayQuote.text(getRandomQuote())
 
     picture.on('click', function(){
       console.log(this)
