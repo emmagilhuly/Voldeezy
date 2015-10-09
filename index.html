@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css" media="screen" title="no title" charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+    <title>Donald Kanye Voldemort</title>
+  </head>
+  <body>
+    <h1>Donald Kanye Voldemort</h1>
+    <div class = "questioncontainer">
+      <p> "I will be the leader of a company that ends up being worth billions of dollars because I got the answers."</p>
+    </div>
+    <div class = "timer"></div>
+    <div class = "score">Score: </div>
+    <div class = "picturecontainer">
+      <img class = "picture" src = "images/donald.jpg">
+      <img class = "picture" src = "images/kanye.jpeg">
+      <img class = "picture" src = "images/voldemort.jpg">
+    </div>
+
+    <script>
+    var game = {score: 0, ellapsedTime: 60};
+    var timer = $('.timer');
+    var picture = $(".picture")
+
+    setInterval(function(){
+      game.ellapsedTime = game.ellapsedTime - 1;
+      timer.text("Time: " + game.ellapsedTime);
+    }, 1000);
+
+    var array = [
+    "I hate politics. I’m not a politician at all.K",
+    "I am so credible and so influential and so relevant that I will change things.K",
+    "I will be the leader of a company that ends up being worth billions of dollars because I got the answers.K",
+    "Before I had those outlets, my ego was all I had.K",
+    "There’s certain things where I’m like, am I supposed to say this in the press? Am I not supposed to say this?K",
+    "Spoken like a true politician. You will, I think, prove most useful.V",
+    "I’d introduce you, but rumor has it you’re almost as famous as me these days.V",
+    "From this day forth, you put your faith in me.V",
+    "There is no good and evil. There is only power, and those too weak to seek it.V",
+    "No, I am extraordinary.V",
+    "You need somebody because politicians are all talk, no action.T",
+    "You know, look, I’m on a lot of covers. I think maybe more than almost any supermodel. I think more than any supermodel.T",
+    "I will have the finest team that anybody has put together and we will solve a lot of problems.T",
+    "I’ve been challenged by so many people and I don’t, frankly, have time for total political correctness.T",
+    "Anyone who thinks my story is anywhere near over is sadly mistaken.T",
+    "I didn’t want to do this. I just see our country as going to hell. And I felt I had to do it.T",
+  ];
+
+    var rand = array[Math.floor(Math.random() * array.length)];
+    console.log(rand)
+
+    picture.on('click', function(){
+      console.log(this)
+    });
+
+    </script>
+
+  </body>
+</html>
