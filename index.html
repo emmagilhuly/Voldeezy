@@ -14,9 +14,9 @@
     <div class="timer"></div>
     <div class = "score">Score: </div>
     <div class = "picturecontainer">
-      <img class = "picture" src = "images/donald.jpg">
-      <img class = "picture" src = "images/kanye.jpeg">
-      <img class = "picture" src = "images/voldemort.jpg">
+      <img class = "picture" id = "donald" src = "images/donald.jpg">
+      <img class = "picture" id = "kanye" src = "images/kanye.jpeg">
+      <img class = "picture" id = "voldemort" src = "images/voldemort.jpg">
     </div>
 
     <script>
@@ -25,28 +25,28 @@
     var picture = $(".picture")
     var displayQuote = $("#displayquote")
 
-    setInterval(function (){
+    var displayTimer = setInterval(function (){
       game.ellapsedTime = game.ellapsedTime - 1;
       timer.text("Time: " + game.ellapsedTime);
     }, 1000);
 
     var quotes = [
-    "I hate politics. I’m not a politician at all.K",
-    "I am so credible and so influential and so relevant that I will change things.K",
-    "I will be the leader of a company that ends up being worth billions of dollars because I got the answers.K",
-    "Before I had those outlets, my ego was all I had.K",
-    "There’s certain things where I’m like, am I supposed to say this in the press? Am I not supposed to say this?K",
-    "Spoken like a true politician. You will, I think, prove most useful.V",
-    "I’d introduce you, but rumor has it you’re almost as famous as me these days.V",
-    "From this day forth, you put your faith in me.V",
-    "There is no good and evil. There is only power, and those too weak to seek it.V",
-    "No, I am extraordinary.V",
-    "You need somebody because politicians are all talk, no action.T",
-    "You know, look, I’m on a lot of covers. I think maybe more than almost any supermodel. I think more than any supermodel.T",
-    "I will have the finest team that anybody has put together and we will solve a lot of problems.T",
-    "I’ve been challenged by so many people and I don’t, frankly, have time for total political correctness.T",
-    "Anyone who thinks my story is anywhere near over is sadly mistaken.T",
-    "I didn’t want to do this. I just see our country as going to hell. And I felt I had to do it.T",
+    ["I hate politics. I’m not a politician at all.", "Kanye"],
+    ["I am so credible and so influential and so relevant that I will change things.", "Kanye"],
+    ["I will be the leader of a company that ends up being worth billions of dollars because I got the answers.", "Kanye"],
+    ["Before I had those outlets, my ego was all I had.", "Kanye"],
+    ["There’s certain things where I’m like, am I supposed to say this in the press? Am I not supposed to say this?", "Kanye"],
+    ["Spoken like a true politician. You will, I think, prove most useful.", "Voldemort"],
+    ["I’d introduce you, but rumor has it you’re almost as famous as me these days.", "Voldemort"],
+    ["From this day forth, you put your faith in me.", "Voldemort"],
+    ["There is no good and evil. There is only power, and those too weak to seek it.", "Voldemort"],
+    ["No, I am extraordinary.", "Voldemort"],
+    ["You need somebody because politicians are all talk, no action.", "Trump"],
+    ["You know, look, I’m on a lot of covers. I think maybe more than almost any supermodel. I think more than any supermodel.", "Trump"],
+    ["I will have the finest team that anybody has put together and we will solve a lot of problems.", "Trump"],
+    ["I’ve been challenged by so many people and I don’t, frankly, have time for total political correctness.", "Trump"],
+    ["Anyone who thinks my story is anywhere near over is sadly mistaken.", "Trump"],
+    ["I didn’t want to do this. I just see our country as going to hell. And I felt I had to do it.", "Trump"]
   ];
     //get the first quote
     //quote[0]
@@ -56,13 +56,13 @@
     //get a random quote
     //Math.floor(Math.random() * quotes.length)
 
-
     function getRandomQuote() {
       quoteIndex =  Math.floor(Math.random() * quotes.length)
-      return quotes[quoteIndex]
-    }
+      return quotes[quoteIndex][0]
+}
 
     displayQuote.text(getRandomQuote())
+
 
     picture.on('click', function(){
       console.log(this)

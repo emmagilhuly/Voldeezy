@@ -1,17 +1,16 @@
 h1 {
   text-align: center;
-  padding-top: 50px;
+  padding-top: 40px;
 }
 
 .questionconatiner{
-  height: 400px;
+  height: 200px;
 }
 
 p {
   text-align: center;
   font-size: 30px;
-  padding-top: 40px;
-  padding-bottom: 20px;
+  padding: 30px 50px 10px 50px;
 }
 
 .timer{
@@ -21,6 +20,7 @@ p {
   margin-left: auto;
   font-size: 30px;
   text-align: center;
+  color: red;
 }
 
 .score{
@@ -34,9 +34,10 @@ p {
 }
 
 .picture {
-  height: 300px;
-  width: 250px;
-  border-radius: 50%;
-  padding-right: 40px;
+  height: 270px;
+  width: 230px;
+  border-radius: 60%;
+  margin-right: 25px;
+  margin-left: 25px;
   display: inline-block;
 }
