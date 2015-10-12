@@ -11,8 +11,8 @@
     <div class = "questioncontainer">
       <p id="displayquote"> "I will be the leader of a company that ends up being worth billions of dollars because I got the answers."</p>
     </div>
-    <div class="timer"></div>
-    <div class = "score">Score: </div>
+    <div class="timer">Time: 60</div>
+    <div class = "score">Score:</div>
     <div class = "picturecontainer">
       <img class = "picture" id = "donald" src = "images/donald.jpg">
       <img class = "picture" id = "kanye" src = "images/kanye.jpeg">
@@ -21,52 +21,143 @@
 
     <script>
     var game = {score: 0, ellapsedTime: 60};
-    var timer = $('.timer');
-    var picture = $(".picture")
-    var displayQuote = $("#displayquote")
+    var $timer = $('.timer');
+    var $picture = $(".picture")
+    var $displayQuote = $("#displayquote")
+    var $scoreboard = $('.score')
 
-    var displayTimer = setInterval(function (){
+    //startTimer and end Timer
+
+    var displayTimer = setInterval(startTimer, 1000);
+
+    function startTimer(){
+      if (game.ellapsedTime> 0){
       game.ellapsedTime = game.ellapsedTime - 1;
-      timer.text("Time: " + game.ellapsedTime);
-    }, 1000);
+      $timer.text("Time: " + game.ellapsedTime)
+    } else $timer.text("Time is up!")
+  }
 
-    var quotes = [
-    ["I hate politics. I’m not a politician at all.", "Kanye"],
-    ["I am so credible and so influential and so relevant that I will change things.", "Kanye"],
-    ["I will be the leader of a company that ends up being worth billions of dollars because I got the answers.", "Kanye"],
-    ["Before I had those outlets, my ego was all I had.", "Kanye"],
-    ["There’s certain things where I’m like, am I supposed to say this in the press? Am I not supposed to say this?", "Kanye"],
-    ["Spoken like a true politician. You will, I think, prove most useful.", "Voldemort"],
-    ["I’d introduce you, but rumor has it you’re almost as famous as me these days.", "Voldemort"],
-    ["From this day forth, you put your faith in me.", "Voldemort"],
-    ["There is no good and evil. There is only power, and those too weak to seek it.", "Voldemort"],
-    ["No, I am extraordinary.", "Voldemort"],
-    ["You need somebody because politicians are all talk, no action.", "Trump"],
-    ["You know, look, I’m on a lot of covers. I think maybe more than almost any supermodel. I think more than any supermodel.", "Trump"],
-    ["I will have the finest team that anybody has put together and we will solve a lot of problems.", "Trump"],
-    ["I’ve been challenged by so many people and I don’t, frankly, have time for total political correctness.", "Trump"],
-    ["Anyone who thinks my story is anywhere near over is sadly mistaken.", "Trump"],
-    ["I didn’t want to do this. I just see our country as going to hell. And I felt I had to do it.", "Trump"]
-  ];
+  var donald = {
+    quote: [
+      "You need somebody because politicians are all talk, no action.",
+      "Anyone who thinks my story is anywhere near over is sadly mistaken.",
+      "Sometimes by losing a battle you find a new way to win the war",
+      "It's always good to be underestimated.",
+      "I promise, if I wanted it, I would've gotten it.",
+      "Controversy, in short, sells.",
+      "As long as you are going to be thinking anyway, think big.",
+      "Show me someone without an ego, and I'll show you a loser.",
+      "I will have the finest team that anybody has put together and we will solve a lot of problems.",
+      "I didn’t want to do this. I just see our country as going to hell. And I felt I had to do it."
+    ],
+    $picture: $("#donald")
+  }
+
+  var kanye = {
+    quote: [
+      "I hate politics. I’m not a politician at all.",
+      "I am so credible and so influential and so relevant that I will change things.",
+      "I will be the leader of a company that ends up being worth billions of dollars because I got the answers.",
+      "There’s certain things where I’m like, am I supposed to say this in the press? Am I not supposed to say this?",
+      "I feel like I'm too busy writing history to read it.",
+      "Nothing in life is promised except death.",
+      "I still think I am the greatest.",
+      "I live and breathe every element in life.",
+      "The media crufiy me like they did Christ.",
+      "When you're the absolute best, you get hated on the most.",
+    ],
+    $picture: $("#kanye")
+  }
+
+  var voldemort = {
+    quote: [
+      "Spoken like a true politician. You will, I think, prove most useful.",
+      "I’d introduce you, but rumor has it you’re almost as famous as me these days.",
+      "From this day forth, you put your faith in me.",
+      "There is no good and evil. There is only power",
+      "No, I am extraordinary.",
+      "They never learn. Such a pity.",
+      "Only I can live forever.",
+      "After tonight, no one will ever again question my power.",
+      "From this day forth, you put your faith... in me.",
+      "Greatness inspires envy."
+    ],
+    $picture: $("#voldemort")
+  }
+
+//combine all quotes
+  var allQuotes = []
+  allQuotes.push.apply(allQuotes, donald.quote);
+  allQuotes.push.apply(allQuotes, kanye.quote);
+  allQuotes.push.apply(allQuotes, voldemort.quote);
+
+    //allQuotes.concat(donaldQuotes).concat(kanye.quote).concat(voldemort.quote);
     //get the first quote
-    //quote[0]
+    //allQuotes[0]
     //get the last quote
-    //quote[(quote.length-1)]
+    //allQuotes[(quote.length-1)]
 
     //get a random quote
-    //Math.floor(Math.random() * quotes.length)
+    //Math.floor(Math.random() * allQuotes.length)
 
-    function getRandomQuote() {
-      quoteIndex =  Math.floor(Math.random() * quotes.length)
-      return quotes[quoteIndex][0]
-}
+  function getRandomQuote(){
+    quoteIndex = Math.floor(Math.random() * allQuotes.length)
+    return allQuotes[quoteIndex]
+  }
 
-    displayQuote.text(getRandomQuote())
+  $displayQuote.text(getRandomQuote())
 
+  //display quote in center
 
-    picture.on('click', function(){
-      console.log(this)
-    });
+  $(donald.$picture).click (function (){
+    // console.log('clicked donald');
+    if (quoteIndex <= 9) {
+      alert ("You picked Trump, you are correct!")
+      //score = game.score + 1;
+      game.score++;
+      $scoreboard.text("Score: "+ game.score);
+      //console.log(getRandomQuote());
+      $displayQuote.text(getRandomQuote())
+    } else if (quoteIndex >= 10) {
+      alert ("You choose the wrong answer")
+      game.score-=1;
+      $displayQuote.text(getRandomQuote());
+      $scoreboard.text("Score: "+ game.score);
+    }
+  });
+
+  $(kanye.$picture).click(function (){
+    // console.log('clicked kanye');
+    if (quoteIndex >= 10 && quoteIndex <= 19 ) {
+      alert ("You picked Kanye, you are correct!")
+      game.score++;
+      $scoreboard.text("Score: " + game.score);
+      //console.log(getRandomQuote());
+      $displayQuote.text(getRandomQuote())
+    } else if (quoteIndex >= 20 || quoteIndex <=9) {
+      alert ("You choose the wrong answer")
+      game.score-=1;
+      $displayQuote.text(getRandomQuote());
+      $scoreboard.text("Score: "+ game.score);
+    }
+  })
+
+  $(voldemort.$picture).click(function (){
+    // console.log('clicked voldemort');
+    if (quoteIndex >= 20 ) {
+      alert ("You picked Voldemort, you are correct!")
+      game.score++;
+      $scoreboard.text("Score: "+ game.score);
+      //console.log(getRandomQuote());
+      $displayQuote.text(getRandomQuote())
+    } else if (quoteIndex < 20) {
+      alert ("You choose the wrong answer")
+      game.score-=1;
+      $displayQuote.text(getRandomQuote());
+      $scoreboard.text("Score: "+ game.score);
+    }
+  })
+
 
     </script>
 

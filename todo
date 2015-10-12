@@ -1,0 +1,10 @@
+1. Fix syntax
+2. After answer, select new quote
+  2.0  Figure out if display new quote after every click or every right click
+  2.1. After selecting new quote, show new quote
+  2.2. Restart timer
+  2.3. Make sure score tallies instead of restarts
+3. When time is up or all quotes are used, restart game
+  3.1 eventually maybe go to next player
+  3.2 for now game restarts by refreshing page
+4. Refactor to abstract logic
