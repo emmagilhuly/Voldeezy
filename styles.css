@@ -26,7 +26,13 @@ p {
 .score{
   font-size: 30px;
   text-align: center;
-  padding-bottom: 50px;
+  padding-bottom: 30px;
+  color: red;
+}
+
+.wrapper {
+  text-align: center;
+  padding-bottom: 40px;
 }
 
 .picturecontainer{

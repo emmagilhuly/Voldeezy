@@ -12,7 +12,10 @@
       <p id="displayquote"> "I will be the leader of a company that ends up being worth billions of dollars because I got the answers."</p>
     </div>
     <div class="timer">Time: 60</div>
-    <div class = "score">Score:</div>
+    <div class = "score">Score: 0</div>
+    <div class = "wrapper">
+      <button type= "button"> Restart </button>
+    </div>
     <div class = "picturecontainer">
       <img class = "picture" id = "donald" src = "images/donald.jpg">
       <img class = "picture" id = "kanye" src = "images/kanye.jpeg">
@@ -20,23 +23,57 @@
     </div>
 
     <script>
-    var game = {score: 0, ellapsedTime: 60};
+    var game = {score: 0, ellapsedTime: 5};
     var $timer = $('.timer');
     var $picture = $(".picture")
     var $displayQuote = $("#displayquote")
     var $scoreboard = $('.score')
+    var $restart = $("button")
 
     //startTimer and end Timer
 
     var displayTimer = setInterval(startTimer, 1000);
+    // setTimeout(function restart (){game.elappsedTime = "0", 2000}
 
     function startTimer(){
-      if (game.ellapsedTime> 0){
-      game.ellapsedTime = game.ellapsedTime - 1;
-      $timer.text("Time: " + game.ellapsedTime)
-    } else $timer.text("Time is up!")
-  }
 
+      if (game.ellapsedTime> 0){
+        game.ellapsedTime = game.ellapsedTime - 1;
+        $timer.text("Time: " + game.ellapsedTime);
+      }  else if (game.ellapsedTime === 0){
+          gameOver();
+          // disable_everything();
+        }
+    }
+
+
+    /* function disable_everything(){
+      //
+
+    }*/
+
+    function gameOver(){
+      clearInterval(displayTimer);
+      alert ("Time is up!");
+      $timer.text("Time is up");
+      $scoreboard.text("Press restart to play again");
+    }
+
+    //   } else if (game.ellapsedTime == 0){
+    //     clearInterval(displayTimer);
+    //     $timer.text("Time is up");
+    //     $scoreboard.text("Press restart to play again ");
+    //     if(!localStorage["alertdisplayed"]) {
+    //        alert("Time is up!")
+    //        localStorage["alertdisplayed"] = true
+    //      }
+    //   }
+    // }
+
+
+
+
+//0-9
   var donald = {
     quote: [
       "You need somebody because politicians are all talk, no action.",
@@ -53,6 +90,7 @@
     $picture: $("#donald")
   }
 
+//10-19
   var kanye = {
     quote: [
       "I hate politics. I’m not a politician at all.",
@@ -69,6 +107,7 @@
     $picture: $("#kanye")
   }
 
+//20-29
   var voldemort = {
     quote: [
       "Spoken like a true politician. You will, I think, prove most useful.",
@@ -100,8 +139,11 @@
     //get a random quote
     //Math.floor(Math.random() * allQuotes.length)
 
+  var randnums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29];
+
   function getRandomQuote(){
-    quoteIndex = Math.floor(Math.random() * allQuotes.length)
+    quoteIndex = Math.floor(Math.random() * randnums.length);
+    randnums.splice(quoteIndex, 1);
     return allQuotes[quoteIndex]
   }
 
@@ -158,6 +200,19 @@
     }
   })
 
+  function reset (){
+     startTimer();
+     game.score = 0;
+     game.ellapsedTime = 5;
+     $timer.text("Time: 60");
+     $scoreboard.text("Score: 0");
+  }
+
+ $restart.click(function(){
+    reset ();
+    var displayTimer = setInterval(startTimer, 1000);
+    startTimer();
+ })
 
     </script>
 
