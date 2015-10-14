@@ -1,5 +1,3 @@
 1. Change alert to something CSS-like when click is right or wrong
 2. When time is up or all quotes are used, restart game
-  2.1 eventually maybe go to next player
-  2.2 for now game restarts by refreshing page
 3. Refactor to abstract logic

@@ -1,4 +1,4 @@
-var game = {score: 0, ellapsedTime: 10};
+var game = {score: 0, ellapsedTime: 60};
 var $timer = $('.timer');
 var $picture = $(".picture")
 var $displayQuote = $("#displayquote")
@@ -33,7 +33,7 @@ quote: [
   "Nothing in life is promised except death.",
   "I still think I am the greatest.",
   "I live and breathe every element in life.",
-  "The media crufiy me like they did Christ.",
+  "The media crucify me like they did Christ.",
   "When you're the absolute best, you get hated on the most.",
 ],
 $picture: $("#kanye")
@@ -66,9 +66,14 @@ var randnums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18
 
 function getRandomQuote(){
   quoteIndex = Math.floor(Math.random() * randnums.length);
-  randnums.splice(quoteIndex, 1);
-  return allQuotes[quoteIndex];
+  var randomNumber = randnums.splice(quoteIndex, 1);
+  console.log('randomNumber', randomNumber);
+  if (randnums.length === 0) {
+    allQuestionsAnswered();
+    }
+  return allQuotes[randomNumber];
 }
+
 
 $displayQuote.text(getRandomQuote());
 
@@ -78,13 +83,14 @@ function setEventHandlers(){
   $(donald.$picture).click (function (){
   if (quoteIndex <= 9) {
     alert ("You picked Trump, you are correct!")
-    //score = game.score + 1;
+    // $(this).toggleClass('clickedcorrect');
     game.score++;
     $scoreboard.text("Score: "+ game.score);
     //console.log(getRandomQuote());
     $displayQuote.text(getRandomQuote())
   } else if (quoteIndex >= 10) {
     alert ("You choose the wrong answer")
+    $(this).toggleClass('clickedwrong');
     game.score-=1;
     $displayQuote.text(getRandomQuote());
     $scoreboard.text("Score: "+ game.score);
@@ -135,13 +141,14 @@ $restart.click(function(){
 })
 
 //declare variable to call later
-var displayTimer = null;
+var displayTimer;
 
 //reset time and score and start timer
 function reset(){
   game = {score: 0, ellapsedTime: 60};
   $timer.text("Time: 60");
   $scoreboard.text("Score: 0");
+  clearInterval(displayTimer);
   startTimer();
 }
 

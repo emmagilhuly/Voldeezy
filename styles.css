@@ -14,13 +14,14 @@ p {
 }
 
 .timer{
-  width: 300px;
+  width: 500px;
   height: 50px;
   margin-right: auto;
   margin-left: auto;
   font-size: 30px;
   text-align: center;
   color: red;
+  padding-bottom: 5px;
 }
 
 .score{
@@ -46,4 +47,12 @@ p {
   margin-right: 25px;
   margin-left: 25px;
   display: inline-block;
+}
+
+.clickedcorrect {
+    border: 5px solid yellow;
+}
+
+.clickedwrong{
+    border: 5px solid red;
 }
