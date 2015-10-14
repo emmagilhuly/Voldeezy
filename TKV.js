@@ -82,46 +82,77 @@ $displayQuote.text(getRandomQuote());
 function setEventHandlers(){
   $(donald.$picture).click (function (){
   if (quoteIndex <= 9) {
-    alert ("You picked Trump, you are correct!")
-    // $(this).toggleClass('clickedcorrect');
+    // alert ("You picked Trump, you are correct!")
+    $("#donaldhalo").css("visibility","visible");
+    setTimeout(function (){
+        $("#donaldhalo").css("visibility","hidden");
+    }, 1000);
     game.score++;
     $scoreboard.text("Score: "+ game.score);
+    $scoreboard.fadeIn(750).fadeOut(750).fadeIn(750)
     //console.log(getRandomQuote());
     $displayQuote.text(getRandomQuote())
   } else if (quoteIndex >= 10) {
-    alert ("You choose the wrong answer")
-    $(this).toggleClass('clickedwrong');
+    // alert ("You choose the wrong answer")
+    // $(this).fadeIn(750).fadeOut(750).fadeIn(750)
+    $("#donaldevil").css("visibility","visible");
+    setTimeout(function (){
+        $("#donaldevil").css("visibility","hidden");
+    }, 1000);
     game.score-=1;
     $displayQuote.text(getRandomQuote());
     $scoreboard.text("Score: "+ game.score);
+    $scoreboard.fadeIn(750).fadeOut(750).fadeIn(750)
   }
   });
 
   $(kanye.$picture).click(function (){
   if (quoteIndex >= 10 && quoteIndex <= 19 ) {
-    alert ("You picked Kanye, you are correct!")
+    // alert ("You picked Kanye, you are correct!")
+    $("#kanyehalo").css("visibility","visible");
+    setTimeout(function (){
+        $("#kanyehalo").css("visibility","hidden");
+    }, 1000);
+    // $(this).toggleClass('clickedcorrect');
+    // setTimeout(function (){
+    //     $(kanye.$picture).toggleClass('clickedcorrect');
+    // }, 1000);
     game.score++;
     $scoreboard.text("Score: " + game.score);
+    $scoreboard.fadeIn(750).fadeOut(750).fadeIn(750)
     //console.log(getRandomQuote());
     $displayQuote.text(getRandomQuote())
   } else if (quoteIndex >= 20 || quoteIndex <=9) {
-    alert ("You choose the wrong answer")
+    // alert ("You choose the wrong answer")
+    // $(this).fadeIn(750).fadeOut(750).fadeIn(750)
+    $("#kanyedevil").css("visibility","visible");
+    setTimeout(function (){
+        $("#kanyedevil").css("visibility","hidden");
+    }, 1000);
     game.score-=1;
     $displayQuote.text(getRandomQuote());
     $scoreboard.text("Score: "+ game.score);
+    $scoreboard.fadeIn(750).fadeOut(750).fadeIn(750)
   }
   })
 
   $(voldemort.$picture).click(function (){
   if (quoteIndex >= 20 ) {
-    alert ("You picked Voldemort, you are correct!")
+    // alert ("You picked Voldemort, you are correct!")
+    $("#voldemorthalo").css("visibility","visible");
+    setTimeout(function (){
+        $("#voldemorthalo").css("visibility","hidden");
+    }, 1000);
     game.score++;
     $scoreboard.text("Score: "+ game.score);
     //console.log(getRandomQuote());
     $displayQuote.text(getRandomQuote())
   } else if (quoteIndex < 20) {
-    alert ("You choose the wrong answer")
-    game.score-=1;
+    // alert ("You choose the wrong answer")
+    $("#voldemortdevil").css("visibility","visible");
+    setTimeout(function (){
+        $("#voldemortdevil").css("visibility","hidden");
+    }, 1000);    game.score-=1;
     $displayQuote.text(getRandomQuote());
     $scoreboard.text("Score: "+ game.score);
   }

@@ -33,11 +33,79 @@ p {
 
 .wrapper {
   text-align: center;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 }
+
+.angeldevil {
+    text-align: center;
+    position: relative;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+#donalddevil {
+    height: 80px;
+    width: 200px;
+    margin-left: 35px;
+    margin-right: 35px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    visibility: hidden;
+}
+
+#kanyedevil {
+    height: 80px;
+    width: 200px;
+    margin-left: 35px;
+    margin-right: 35px;
+    visibility: hidden;
+}
+
+#voldemortdevil {
+    height: 80px;
+    width: 200px;
+    margin-left: 35px;
+    margin-right: 35px;
+    visibility: hidden;
+}
+
+
+#donaldhalo {
+    height: 70px;
+    width: 200px;
+    margin-right: 600px;
+    margin-left: 45px;
+    display: inline-block;
+    position: absolute;
+    visibility: hidden;
+}
+
+
+#kanyehalo {
+    height: 70px;
+    width: 200px;
+    margin-right: 45px;
+    margin-left: 45px;
+    display: inline-block;
+    position: absolute;
+    visibility: hidden;
+}
+
+#voldemorthalo {
+    height: 70px;
+    width: 200px;
+    margin-right: 45px;
+    margin-left: 45px;
+    display: inline-block;
+    position: absolute;
+    visibility: hidden;
+}
+
 
 .picturecontainer{
   text-align: center;
+  margin-top: 0px;
+  padding-top: 0px;
 }
 
 .picture {
@@ -47,12 +115,6 @@ p {
   margin-right: 25px;
   margin-left: 25px;
   display: inline-block;
-}
-
-.clickedcorrect {
-    border: 5px solid yellow;
-}
-
-.clickedwrong{
-    border: 5px solid red;
+  margin-top: 0px;
+  padding-top: 0px;
 }
