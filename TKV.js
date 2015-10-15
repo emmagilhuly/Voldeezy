@@ -1,7 +1,7 @@
-var playerOne = {score: 0}
-var playerTwo = {score: 0}
+var playerOne = {name: 'Player 1', score: 0}
+var playerTwo = {name: 'Player 2', score: 0}
 var game = {
-    ellapsedTime: 60,
+    ellapsedTime: 5,
     currentPlayer: playerOne
 };
 var $timer = $('.timer');
@@ -23,7 +23,7 @@ quote: [
   "As long as you are going to be thinking anyway, think big.",
   "Show me someone without an ego, and I'll show you a loser.",
   "I will have the finest team that anybody has put together and we will solve a lot of problems.",
-  "I didn’t want to do this. I just see our country as going to hell. And I felt I had to do it."
+  "I didn’t want to do this. I just... felt I had to do it."
 ],
 $picture: $("#donald")
 }
@@ -34,12 +34,12 @@ quote: [
     "I hate politics. I’m not a politician at all.",
     "I am so credible and so influential and so relevant that I will change things.",
     "I will be the leader of a company that ends up being worth billions of dollars because I got the answers.",
-    "There’s certain things where I’m like, am I supposed to say this in the press? Am I not supposed to say this?",
+    "Am I supposed to say this in the press? Am I not supposed to say this?",
     "I feel like I'm too busy writing history to read it.",
     "Nothing in life is promised except death.",
-    "I still think I am the greatest.",
     "I live and breathe every element in life.",
     "The media crucify me like they did Christ.",
+    "I still think I am the greatest.",
     "When you're the absolute best, you get hated on the most.",
 ],
 $picture: $("#kanye")
@@ -56,7 +56,7 @@ var voldemort = {
     "They never learn. Such a pity.",
     "Only I can live forever.",
     "After tonight, no one will ever again question my power.",
-    "From this day forth, you put your faith... in me.",
+    "I have seen your heart and it is mine.",
     "Greatness inspires envy."
   ],
   $picture: $("#voldemort")
@@ -68,11 +68,11 @@ allQuotes.push.apply(allQuotes, donald.quote);
 allQuotes.push.apply(allQuotes, kanye.quote);
 allQuotes.push.apply(allQuotes, voldemort.quote);
 
-var randnums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29];
-// var randnums = [ ];
-// for (i= 0; i < 30; i++){
-//     randnums.push()
-// }
+// var randnums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29];
+var randnums = [ ];
+for (i= 0; i < 30; i++){
+    randnums.push(i)
+}
 
 function getRandomQuote(){
   var randomPosition = Math.floor(Math.random() * randnums.length); //get random position based on length of randnums
@@ -180,12 +180,13 @@ var displayTimer;
 
 //reset time and score and start timer
 function reset(){
-  game = {ellapsedTime: 60, currentPlayer: playerTwo};
+  game = {ellapsedTime: 5, currentPlayer: playerTwo};
+  clearInterval(displayTimer);
   randnums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29];
   $displayQuote.text(getRandomQuote());
   $timer.text("60");
   $scoreboard.text("0");
-  clearInterval(displayTimer);
+
   startTimer();
 }
 
@@ -197,11 +198,11 @@ function getWinner(){
     $("#sunglasses").css("visibility","visible");
     $displayQuote.text("Jesus Walks")
     if (playerOne.score > playerTwo.score){
-         $scoreboard.text("Player One has won!").fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750);
+         $scoreboard.text("Player One has won!").fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750)
     } else if (playerTwo.score > playerOne.score){
-         $scoreboard.text("Player Two has won!").fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750);
+         $scoreboard.text("Player Two has won!").fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750)
     } else if (playerOne.score === playerTwo.score){
-        $scoreboard.text("Tie game!").fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750);
+        $scoreboard.text("Tie game!").fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750);
     }
 
 }
@@ -213,7 +214,7 @@ function gameOver(){
   alert ("Time is up!");
   $timer.text("Time is up");
   if (game.currentPlayer === playerOne) {
-      $scoreboard.text("Press Switch Player for Player Two").fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750)
+      $scoreboard.text("Press Switch Player for Player Two").fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750)
   } else if (game.currentPlayer === playerTwo){
       $scoreboard.text("Game over");
       getWinner();
@@ -232,6 +233,7 @@ function check_time(){
 
 //set EventHandlers and setInterval for Check Time
 function startTimer(){
+  disableEventHandlers();//remove any existing handlers
   setEventHandlers();
   displayTimer = setInterval(function() {
     check_time();

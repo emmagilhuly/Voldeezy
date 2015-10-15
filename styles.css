@@ -180,7 +180,7 @@ button {
 
 
 
-@media (max-width: 900px){
+@media (max-width: 960px){
     h1 {
         font-size: 40px;
     }
@@ -193,5 +193,165 @@ button {
     .score {
         font-size: 30px;
     }
+    .picture {
+        height: 230px;
+        width: 190px;
+    }
+    .voldemort {
+        margin-left: 40px;
+    }
+    #donaldhalo {
+        width: 120px;
+        margin-left: 60px;
+    }
+    #donalddevil {
+        width: 140px;
+        margin-left: 50px;
+        top: -70px;
+    }
+    #mustache {
+        width: 80px;
+        margin-left: 90px;
+        top: 110px;
+    }
+    #kanyehalo {
+        width: 120px;
+        margin-left: 55px;
+    }
+    #kanyedevil {
+        width: 140px;
+        margin-left: 45px;
+        margin-right: 35px;
+        top: -65px;
+    }
+    #minniemouse {
+        width: 160px;
+        margin-left: 45px;
+    }
+    #voldemorthalo {
+        width: 120px;
+        margin-right: 70px;
+    }
+    #voldemortdevil {
+        width: 140px;
+        top: -70px;
+    }
+    #sunglasses{
+        width: 140px;
+        margin-left: 60px;
+        top: 40px;
+    }
+}
 
+@media (max-width: 850px){
+    .picture {
+        height: 180px;
+        width: 150px;
+    }
+    .donald {
+        margin-right: 0px;
+    }
+    .voldemort {
+        margin-left: 0px;
+    }
+    #donaldhalo {
+        width: 100px;
+        margin-left: 50px;
+    }
+    #donalddevil {
+        width: 120px;
+        margin-left: 40px;
+        top: -60px;
+    }
+    #mustache {
+        width: 70px;
+        margin-left: 70px;
+        top: 90px;
+    }
+    #kanyehalo {
+        width: 100px;
+        margin-left: 45px;
+    }
+    #kanyedevil {
+        width: 120px;
+        margin-left: 35px;
+        margin-right: 35px;
+        top: -55px;
+    }
+    #minniemouse {
+        width: 140px;
+        margin-left: 30px;
+    }
+    #voldemorthalo {
+        width: 100px;
+    }
+    #voldemortdevil {
+        width: 120px;
+        top: -60px;
+    }
+    #sunglasses{
+        width: 120px;
+        margin-left: 50px;
+        top: 30px;
+    }
+}
+
+@media (max-width: 650px){
+    .picture {
+        height: 100px;
+        width: 90px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    p {
+        font-size: 20px
+    }
+    .score {
+        font-size: 20px;
+    }
+    .timer {
+        font-size: 20px;
+    }
+    #donaldhalo {
+        width: 80px;
+        margin-left: 20px;
+    }
+    #donalddevil {
+        width: 80px;
+        margin-left: 20px;
+        top: -40px;
+    }
+    #mustache {
+        width: 40px;
+        margin-left: 40px;
+        top: 50px;
+    }
+    #kanyehalo {
+        width: 70px;
+        margin-left: 20px;
+    }
+    #kanyedevil {
+        width: 80px;
+        margin-left: 15px;
+        top: -35px;
+    }
+    #minniemouse {
+        width: 80px;
+        margin-left: 15px;
+        top: -30px;
+    }
+    #voldemorthalo {
+        width: 80px;
+        margin-left: 20px;
+    }
+    #voldemortdevil {
+        width: 90px;
+        top: -40px;
+        margin-left: 10px;
+    }
+    #sunglasses{
+        width: 80px;
+        margin-left: 20px;
+        top: 15px;
+    }
 }
