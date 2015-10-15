@@ -1,3 +1,1 @@
-1. Change alert to something CSS-like when click is right or wrong
-2. When time is up or all quotes are used, restart game
 3. Refactor to abstract logic
