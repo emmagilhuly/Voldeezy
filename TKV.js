@@ -51,7 +51,7 @@ var voldemort = {
     "Spoken like a true politician. You will, I think, prove most useful.",
     "I’d introduce you, but rumor has it you’re almost as famous as me these days.",
     "From this day forth, you put your faith in me.",
-    "There is no good and evil. There is only power",
+    "There is no good and evil. There is only power.",
     "No, I am extraordinary.",
     "They never learn. Such a pity.",
     "Only I can live forever.",
@@ -192,14 +192,18 @@ function reset(){
 function getWinner(){
     $("button").hide()
     $timer.text("Player One Score: " + playerOne.score + ",  Player Two Score: " + playerTwo.score)
+    $("#mustache").css("visibility","visible");
+    $("#minniemouse").css("visibility","visible");
+    $("#sunglasses").css("visibility","visible");
+    $displayQuote.text("Jesus Walks")
     if (playerOne.score > playerTwo.score){
-         $scoreboard.text("Player One has won!");
+         $scoreboard.text("Player One has won!").fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750);
     } else if (playerTwo.score > playerOne.score){
-         $scoreboard.text("Player Two has won!");
+         $scoreboard.text("Player Two has won!").fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750);
     } else if (playerOne.score === playerTwo.score){
-        $scoreboard.text("Tie game!");
+        $scoreboard.text("Tie game!").fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750);
     }
-    
+
 }
 
 //disableEvent Handlers, alert time is up and press refresh to start again
@@ -209,7 +213,7 @@ function gameOver(){
   alert ("Time is up!");
   $timer.text("Time is up");
   if (game.currentPlayer === playerOne) {
-      $scoreboard.text("Press Switch Player for Player Two");
+      $scoreboard.text("Press Switch Player for Player Two").fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750)
   } else if (game.currentPlayer === playerTwo){
       $scoreboard.text("Game over");
       getWinner();

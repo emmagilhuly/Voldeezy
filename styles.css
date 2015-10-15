@@ -1,8 +1,8 @@
 h1 {
   text-align: center;
-  padding-top: 20px;
+  top: 20px;
   font-family: 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
-  font-size: 60px;
+  font-size: 65px;
   color: white;
   text-shadow:
     -1px -1px 0 #000,
@@ -12,7 +12,7 @@ h1 {
 }
 
 .questionconatiner{
-  height: 200px;
+  height: 150px;
   text-align: center;
 }
 
@@ -28,17 +28,16 @@ p {
   margin-right: auto;
   margin-left: auto;
   font-size: 30px;
-  top: 30px;
   text-align: center;
   color: red;
-  padding-bottom: 5px;
   font-family: 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
 }
 
 .score{
   font-size: 30px;
   text-align: center;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
+  top: 10px;
   color: red;
   font-family: 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
 }
@@ -47,15 +46,33 @@ p {
   text-align: center;
 }
 
+button {
+    bottom: 20px;
+    top: 20px;
+}
+
+.picturecontainer{
+  text-align: center;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
 .picture {
-    display: inline-block;
+  height: 270px;
+  width: 230px;
+  border-radius: 60%;
+  margin-right: 25px;
+  margin-left: 25px;
+  display: inline-block;
+  margin-top: 0px;
+  padding-top: 0px;
 }
 
 .donald {
     position: relative;
     display: inline-block;
     text-align: center;
-    top: 50px;
+    top: 60px;
     margin-right: 50px;
 }
 
@@ -78,20 +95,22 @@ p {
     top: -90px;
 }
 
-/*#mustache {
-    width: 180px;
-    margin-left: 50px;
-    margin-right: 35px;
+#mustache {
+    width: 100px;
+    margin-left: 100px;
     position: absolute;
     display: inline-block;
-}*/
+    top: 130px;
+    visibility: hidden;
+}
 
 .kanye {
     position: relative;
     display: inline-block;
     text-align: center;
-    top: 50px;
+    top: 60px;
 }
+
 
 #kanyehalo {
     width: 180px;
@@ -112,22 +131,23 @@ p {
     top: -80px;
 }
 
-/*#minniemouse {
-    width: 180px;
-    margin-left: 40px;
-    margin-right: 35px;
+#minniemouse {
+    width: 170px;
+    margin-left: 60px;
+    top: -40px;
     position: absolute;
     display: inline-block;
-
-}*/
+    visibility: hidden;
+}
 
 .voldemort {
     position: relative;
     display: inline-block;
     text-align: center;
-    top: 50px;
+    top: 60px;
     margin-left: 50px;
 }
+
 
 #voldemorthalo {
     width: 180px;
@@ -148,43 +168,30 @@ p {
     top: -90px;
 }
 
-/*#sunglasses {
-    width: 180px;
-    margin-left: 40px;
-    margin-right: 35px;
+#sunglasses {
+    width: 100px;
     position: absolute;
     display: inline-block;
-}*/
-
-.picturecontainer{
-  text-align: center;
-  margin-top: 0px;
-  padding-top: 0px;
+    width: 170px;
+    margin-left: 70px;
+    top: 50px;
+    visibility: hidden;
 }
 
-.picture {
-  height: 270px;
-  width: 230px;
-  border-radius: 60%;
-  margin-right: 25px;
-  margin-left: 25px;
-  display: inline-block;
-  margin-top: 0px;
-  padding-top: 0px;
-}
+
 
 @media (max-width: 900px){
     h1 {
-        font-size: 30px;
+        font-size: 40px;
     }
     p {
-        font-size: 20px;
+        font-size: 30px;
     }
     .timer {
-        font-size: 20px;
+        font-size: 30px;
     }
     .score {
-        font-size: 20px;
+        font-size: 30px;
     }
 
 }
