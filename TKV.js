@@ -1,7 +1,7 @@
 var playerOne = {name: 'Player 1', score: 0}
 var playerTwo = {name: 'Player 2', score: 0}
 var game = {
-    ellapsedTime: 5,
+    ellapsedTime: 60,
     currentPlayer: playerOne
 };
 var $timer = $('.timer');
@@ -180,7 +180,7 @@ var displayTimer;
 
 //reset time and score and start timer
 function reset(){
-  game = {ellapsedTime: 5, currentPlayer: playerTwo};
+  game = {ellapsedTime: 60, currentPlayer: playerTwo};
   clearInterval(displayTimer);
   randnums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29];
   $displayQuote.text(getRandomQuote());
