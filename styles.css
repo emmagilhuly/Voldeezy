@@ -1,16 +1,26 @@
 h1 {
   text-align: center;
-  padding-top: 40px;
+  padding-top: 20px;
+  font-family: 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
+  font-size: 60px;
+  color: white;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 .questionconatiner{
   height: 200px;
+  text-align: center;
 }
 
 p {
   text-align: center;
   font-size: 30px;
-  padding: 30px 50px 10px 50px;
+  padding: 0px 50px 10px 50px;
+  font-family: 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
 }
 
 .timer{
@@ -18,16 +28,19 @@ p {
   margin-right: auto;
   margin-left: auto;
   font-size: 30px;
+  top: 30px;
   text-align: center;
   color: red;
   padding-bottom: 5px;
+  font-family: 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
 }
 
 .score{
   font-size: 30px;
   text-align: center;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
   color: red;
+  font-family: 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
 }
 
 .wrapper {
@@ -42,86 +55,106 @@ p {
     position: relative;
     display: inline-block;
     text-align: center;
-    top: 100px;
-}
-
-#donalddevil {
-    height: 80px;
-    width: 200px;
-    margin-left: 35px;
-    margin-right: 35px;
-    visibility: hidden;
-    position: absolute;
-    top: -80px;
+    top: 50px;
+    margin-right: 50px;
 }
 
 #donaldhalo {
-    height: 70px;
-    width: 200px;
+    width: 180px;
     margin-right: 600px;
     margin-left: 45px;
     display: inline-block;
     position: absolute;
     visibility: hidden;
-    top: -80px;
+    top: -10px
 }
+
+#donalddevil {
+    width: 180px;
+    margin-left: 50px;
+    margin-right: 35px;
+    visibility: hidden;
+    position: absolute;
+    top: -90px;
+}
+
+/*#mustache {
+    width: 180px;
+    margin-left: 50px;
+    margin-right: 35px;
+    position: absolute;
+    display: inline-block;
+}*/
 
 .kanye {
     position: relative;
     display: inline-block;
     text-align: center;
-    top: 100px;
+    top: 50px;
 }
 
 #kanyehalo {
-    height: 70px;
-    width: 200px;
-    margin-right: 45px;
+    width: 180px;
+    margin-right: 50px;
     margin-left: 45px;
     display: inline-block;
     position: absolute;
     visibility: hidden;
-    top: -80px;
+    top: -10px;
 }
 
 #kanyedevil {
-    height: 80px;
-    width: 200px;
-    margin-left: 35px;
+    width: 180px;
+    margin-left: 40px;
     margin-right: 35px;
     visibility: hidden;
     position: absolute;
     top: -80px;
 }
+
+/*#minniemouse {
+    width: 180px;
+    margin-left: 40px;
+    margin-right: 35px;
+    position: absolute;
+    display: inline-block;
+
+}*/
 
 .voldemort {
     position: relative;
     display: inline-block;
     text-align: center;
-    top: 100px;
+    top: 50px;
+    margin-left: 50px;
 }
 
 #voldemorthalo {
-    height: 70px;
-    width: 200px;
+    width: 180px;
     margin-right: 45px;
     margin-left: 45px;
     display: inline-block;
     position: absolute;
     visibility: hidden;
-    top: -80px;
+    top: -10px;
 }
 
 #voldemortdevil {
-    height: 80px;
-    width: 200px;
-    margin-left: 35px;
+    width: 180px;
+    margin-left: 45px;
     margin-right: 35px;
     visibility: hidden;
     position: absolute;
-    top: -80px;
+    top: -90px;
 }
 
+/*#sunglasses {
+    width: 180px;
+    margin-left: 40px;
+    margin-right: 35px;
+    position: absolute;
+    display: inline-block;
+}*/
 
 .picturecontainer{
   text-align: center;
@@ -138,4 +171,20 @@ p {
   display: inline-block;
   margin-top: 0px;
   padding-top: 0px;
+}
+
+@media (max-width: 900px){
+    h1 {
+        font-size: 30px;
+    }
+    p {
+        font-size: 20px;
+    }
+    .timer {
+        font-size: 20px;
+    }
+    .score {
+        font-size: 20px;
+    }
+
 }
