@@ -25,11 +25,9 @@ p {
 
 .timer{
   height: 50px;
-  margin-right: auto;
-  margin-left: auto;
   font-size: 30px;
-  text-align: center;
   color: red;
+  text-align: center;
   font-family: 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
 }
 
@@ -233,6 +231,7 @@ button {
     #voldemortdevil {
         width: 140px;
         top: -70px;
+        right: 10px;
     }
     #sunglasses{
         width: 140px;
@@ -242,6 +241,9 @@ button {
 }
 
 @media (max-width: 850px){
+    p {
+        font-size: 25px;
+    }
     .picture {
         height: 180px;
         width: 150px;
@@ -282,10 +284,12 @@ button {
     }
     #voldemorthalo {
         width: 100px;
+        left: -15px;
     }
     #voldemortdevil {
         width: 120px;
         top: -60px;
+        right: 10px;
     }
     #sunglasses{
         width: 120px;
@@ -302,7 +306,7 @@ button {
         margin-left: 10px;
     }
     p {
-        font-size: 20px
+        font-size: 20px;
     }
     .score {
         font-size: 20px;
@@ -316,7 +320,7 @@ button {
     }
     #donalddevil {
         width: 80px;
-        margin-left: 20px;
+        margin-left: 18px;
         top: -40px;
     }
     #mustache {
@@ -340,12 +344,13 @@ button {
     }
     #voldemorthalo {
         width: 80px;
-        margin-left: 20px;
+        margin-left: 30px;
     }
     #voldemortdevil {
         width: 90px;
-        top: -40px;
-        margin-left: 10px;
+        top: -43px;
+        margin-left: 30px;
+        right: -22px;
     }
     #sunglasses{
         width: 80px;
