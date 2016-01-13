@@ -76,8 +76,7 @@ button {
 
 #donaldhalo {
     width: 180px;
-    margin-right: 600px;
-    margin-left: 70px;
+    margin-left: 80px;
     display: inline-block;
     position: absolute;
     visibility: hidden;
@@ -298,7 +297,7 @@ button {
     }
 }
 
-@media (max-width: 650px){
+@media (max-width: 600px){
     .picture {
         height: 100px;
         width: 90px;

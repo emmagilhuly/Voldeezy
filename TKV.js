@@ -186,7 +186,7 @@ function reset(){
 }
 
 function getWinner(){
-    $timer.text("Player Score: " + currentPlayer.score)
+    $timer.text("Score: " + currentPlayer.score)
     $("#mustache").css("visibility","visible");
     $("#minniemouse").css("visibility","visible");
     $("#sunglasses").css("visibility","visible");
