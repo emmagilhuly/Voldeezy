@@ -1,14 +1,10 @@
-var playerOne = {name: 'Player 1', score: 0}
-var playerTwo = {name: 'Player 2', score: 0}
-var game = {
-    ellapsedTime: 60,
-    currentPlayer: playerOne
-};
+var currentPlayer = {score: 0}
+var game = {ellapsedTime: 60};
 var $timer = $('.timer');
 var $picture = $(".picture")
 var $displayQuote = $("#displayquote")
 var $scoreboard = $('.score')
-var $switchPlayer = $("button")
+var $restart = $("button")
 
 
 //set donald as an object with 0-9 quotes and picture
@@ -68,7 +64,6 @@ allQuotes.push.apply(allQuotes, donald.quote);
 allQuotes.push.apply(allQuotes, kanye.quote);
 allQuotes.push.apply(allQuotes, voldemort.quote);
 
-// var randnums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29];
 var randnums = [ ];
 for (i= 0; i < 30; i++){
     randnums.push(i)
@@ -80,18 +75,12 @@ function getRandomQuote(){
   //console.log('randnums.length', randnums.length);
   console.log('quoteIndex', quoteIndex);
   if (randnums.length === 0) {
-      if (game.currentPlayer === playerOne) {
-          $timer.text("Press Switch Player for Player Two");
-      } else if (game.currentPlayer === playerTwo){
-          getWinner();
-      }
       clearInterval(displayTimer);
-      alert ("All quotes used!")
       disableEventHandlers();
-      return 'All quotes used';
-} else {
-    return allQuotes[quoteIndex];
-      }
+      getWinner()
+  } else {
+      return allQuotes[quoteIndex];
+  }
 }
 
 $displayQuote.text(getRandomQuote());
@@ -104,8 +93,8 @@ function setEventHandlers(){
     setTimeout(function (){
         $("#donaldhalo").css("visibility","hidden");
     }, 1000);
-    game.currentPlayer.score++;
-    $scoreboard.text(+ game.currentPlayer.score);
+    currentPlayer.score++;
+    $scoreboard.text(+ currentPlayer.score);
     $scoreboard.fadeIn(750).fadeOut(750).fadeIn(750)
     $displayQuote.text(getRandomQuote())
   } else if (quoteIndex >= 10) {
@@ -113,8 +102,8 @@ function setEventHandlers(){
       setTimeout(function (){
           $("#donalddevil").css("visibility","hidden");
       }, 1000);
-    game.currentPlayer.score-=1;
-    $scoreboard.text(+ game.currentPlayer.score);
+    currentPlayer.score-=1;
+    $scoreboard.text(+ currentPlayer.score);
     $scoreboard.fadeIn(750).fadeOut(750).fadeIn(750)
     $displayQuote.text(getRandomQuote());
   }
@@ -126,8 +115,8 @@ function setEventHandlers(){
     setTimeout(function (){
         $("#kanyehalo").css("visibility","hidden");
     }, 1000);
-    game.currentPlayer.score++;
-    $scoreboard.text(+ game.currentPlayer.score);
+    currentPlayer.score++;
+    $scoreboard.text(+ currentPlayer.score);
     $scoreboard.fadeIn(750).fadeOut(750).fadeIn(750)
     $displayQuote.text(getRandomQuote())
   } else if (quoteIndex >= 20 || quoteIndex <=9) {
@@ -135,8 +124,8 @@ function setEventHandlers(){
     setTimeout(function (){
         $("#kanyedevil").css("visibility","hidden");
     }, 1000);
-    game.currentPlayer.score-=1;
-    $scoreboard.text(+ game.currentPlayer.score);
+    currentPlayer.score-=1;
+    $scoreboard.text(+ currentPlayer.score);
     $scoreboard.fadeIn(750).fadeOut(750).fadeIn(750)
     $displayQuote.text(getRandomQuote());
   }
@@ -148,16 +137,16 @@ function setEventHandlers(){
     setTimeout(function (){
         $("#voldemorthalo").css("visibility","hidden");
     }, 1000);
-    game.currentPlayer.score++;
-    $scoreboard.text(+ game.currentPlayer.score);
+    currentPlayer.score++;
+    $scoreboard.text(+ currentPlayer.score);
     $displayQuote.text(getRandomQuote())
   } else if (quoteIndex < 20) {
     $("#voldemortdevil").css("visibility","visible");
     setTimeout(function (){
         $("#voldemortdevil").css("visibility","hidden");
     }, 1000);
-    game.currentPlayer.score-=1;
-    $scoreboard.text(+ game.currentPlayer.score);
+    currentPlayer.score-=1;
+    $scoreboard.text(+ currentPlayer.score);
     $displayQuote.text(getRandomQuote());
   }
   })
@@ -171,7 +160,7 @@ function disableEventHandlers(){
 }
 
 //click restart to reset
-$switchPlayer.click(function(){
+$restart.click(function(){
   reset();
 })
 
@@ -180,31 +169,33 @@ var displayTimer;
 
 //reset time and score and start timer
 function reset(){
-  game = {ellapsedTime: 60, currentPlayer: playerTwo};
-  clearInterval(displayTimer);
-  randnums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29];
+  randnums = [ ];
+  for (i= 0; i < 30; i++){
+      randnums.push(i)
+  };
   $displayQuote.text(getRandomQuote());
+  game = {ellapsedTime: 60};
+  currentPlayer = {score: 0}
+  clearInterval(displayTimer);
   $timer.text("60");
   $scoreboard.text("0");
-
+  $("#mustache").css("visibility","hidden");
+  $("#minniemouse").css("visibility","hidden");
+  $("#sunglasses").css("visibility","hidden");
   startTimer();
 }
 
 function getWinner(){
-    $("button").hide()
-    $timer.text("Player One Score: " + playerOne.score + ",  Player Two Score: " + playerTwo.score)
+    $timer.text("Score: " + currentPlayer.score)
     $("#mustache").css("visibility","visible");
     $("#minniemouse").css("visibility","visible");
     $("#sunglasses").css("visibility","visible");
+    $scoreboard.text("Game over").fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750);
+    if (randnums.length === 0) {
+      $displayQuote.text("All Quotes Used")
+    } else {
     $displayQuote.text("Jesus Walks")
-    if (playerOne.score > playerTwo.score){
-         $scoreboard.text("Player One has won!").fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750)
-    } else if (playerTwo.score > playerOne.score){
-         $scoreboard.text("Player Two has won!").fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750)
-    } else if (playerOne.score === playerTwo.score){
-        $scoreboard.text("Tie game!").fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750);
-    }
-
+  }
 }
 
 //disableEvent Handlers, alert time is up and press refresh to start again
@@ -213,12 +204,8 @@ function gameOver(){
   disableEventHandlers();
   alert ("Time is up!");
   $timer.text("Time is up");
-  if (game.currentPlayer === playerOne) {
-      $scoreboard.text("Press Switch Player for Player Two").fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750)
-  } else if (game.currentPlayer === playerTwo){
-      $scoreboard.text("Game over");
-      getWinner();
-  }
+  $scoreboard.text("Game over").fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750);
+  getWinner();
 }
 
 //Display time and when time is finished game over
