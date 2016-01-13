@@ -1,10 +1,11 @@
 var currentPlayer = {score: 0}
 var game = {ellapsedTime: 60};
-var $timer = $('.timer');
+var $timer = $(".timer");
 var $picture = $(".picture")
 var $displayQuote = $("#displayquote")
-var $scoreboard = $('.score')
+var $scoreboard = $(".score")
 var $restart = $("button")
+var $seconds = $(".seconds")
 
 
 //set donald as an object with 0-9 quotes and picture
@@ -177,7 +178,7 @@ function reset(){
   game = {ellapsedTime: 60};
   currentPlayer = {score: 0}
   clearInterval(displayTimer);
-  $timer.text("60");
+  $h2.text("60");
   $scoreboard.text("0");
   $("#mustache").css("visibility","hidden");
   $("#minniemouse").css("visibility","hidden");
@@ -186,7 +187,8 @@ function reset(){
 }
 
 function getWinner(){
-    $timer.text("Score: " + currentPlayer.score)
+    $timer.text("Score: " + currentPlayer.score);
+    $seconds.css("visibility", "hidden");
     $("#mustache").css("visibility","visible");
     $("#minniemouse").css("visibility","visible");
     $("#sunglasses").css("visibility","visible");
@@ -202,8 +204,8 @@ function getWinner(){
 function gameOver(){
   clearInterval(displayTimer);
   disableEventHandlers();
-  alert ("Time is up!");
   $timer.text("Time is up");
+  $seconds.text("visibility", "hidden");
   $scoreboard.text("Game over").fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750);
   getWinner();
 }
