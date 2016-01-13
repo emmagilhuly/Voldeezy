@@ -175,39 +175,37 @@ function reset(){
       randnums.push(i)
   };
   $displayQuote.text(getRandomQuote());
+  $timer.text("60");
+  $scoreboard.text("0");
   game = {ellapsedTime: 60};
   currentPlayer = {score: 0}
   clearInterval(displayTimer);
-  $h2.text("60");
-  $scoreboard.text("0");
+  $timer.text("Score: " + currentPlayer.score);
+  $seconds.css("visibility", "visible");
   $("#mustache").css("visibility","hidden");
   $("#minniemouse").css("visibility","hidden");
   $("#sunglasses").css("visibility","hidden");
+  $displayQuote.css("margin-top", "0px")
+  $timer.css("margin-top", "0px");
   startTimer();
 }
 
 function getWinner(){
+    clearInterval(displayTimer);
+    disableEventHandlers();
     $timer.text("Score: " + currentPlayer.score);
+    $timer.css("margin-top", "20px");
     $seconds.css("visibility", "hidden");
     $("#mustache").css("visibility","visible");
     $("#minniemouse").css("visibility","visible");
     $("#sunglasses").css("visibility","visible");
     $scoreboard.text("Game over").fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750);
+    $displayQuote.css("margin-top", "-20px")
     if (randnums.length === 0) {
       $displayQuote.text("All Quotes Used")
     } else {
     $displayQuote.text("Jesus Walks")
   }
-}
-
-//disableEvent Handlers, alert time is up and press refresh to start again
-function gameOver(){
-  clearInterval(displayTimer);
-  disableEventHandlers();
-  $timer.text("Time is up");
-  $seconds.text("visibility", "hidden");
-  $scoreboard.text("Game over").fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750).fadeOut(750).fadeIn(750);
-  getWinner();
 }
 
 //Display time and when time is finished game over
@@ -216,7 +214,7 @@ function check_time(){
     game.ellapsedTime--;
     $timer.text(+ game.ellapsedTime);
   }  else if (game.ellapsedTime === 0){
-      gameOver();
+      getWinner();
     }
 }
 
