@@ -1,5 +1,5 @@
 var currentPlayer = {score: 0}
-var game = {ellapsedTime: 60};
+var game = {ellapsedTime: 100};
 var $timer = $(".timer");
 var $picture = $(".picture")
 var $displayQuote = $("#displayquote")
